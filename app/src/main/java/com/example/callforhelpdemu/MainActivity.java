@@ -2,6 +2,7 @@ package com.example.callforhelpdemu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView image1,image2,image3;
     EditText textUsername,textpassword;
-    TextView Login,User,ForgetMessage,message,regester;
+    TextView Login,User,ForgetMessage,message,register;
     Button signin;
     Animation bganim;//Animition image object//
 
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         User=findViewById(R.id.User);
         ForgetMessage=findViewById(R.id.Forget);
         message=findViewById(R.id.message);
-        regester=findViewById(R.id.regester);
+        register=findViewById(R.id.register);
 
 
 
@@ -61,6 +62,24 @@ public class MainActivity extends AppCompatActivity {
 
         image1.animate().translationY(0).setDuration(1800).setStartDelay(500);
         image3.animate().translationY(25).setDuration(3700).setStartDelay(500);
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                RegistrationActivity();
+
+            }
+        });
+
+    }
+
+
+    public void RegistrationActivity(){
+
+        Intent intent = new Intent(this,registration.class);
+        startActivity(intent);
+        finish();
 
     }
 }
