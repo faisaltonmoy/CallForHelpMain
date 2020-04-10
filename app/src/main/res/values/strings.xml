@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CallForHelpDemu</string>
+    <string name="FontTitle">Login</string>
+    <string name="LoginUser">User Id:</string>
+    <string name="LoginPassword">Password:</string>
+    <string name="LoginWRITE">Forgotten Password?</string>
+    <string name="SignInButton">Sign in</string>
+    <string name="Message1">Do not have any account?</string>
+    <string name="Message2">Register</string>
+</resources>
