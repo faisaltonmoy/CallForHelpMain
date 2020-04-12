@@ -1,10 +1,12 @@
 package com.example.callforhelpdemu;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -18,6 +20,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
     private EditText date;
     DatePickerDialog datePickerDialog;
     Spinner spinner;
+    Button signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +28,12 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.registration);
         date = findViewById(R.id.dob_id);
         spinner = findViewById(R.id.spin_id);
+        signup = findViewById(R.id.signup_id);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.bloodGrp_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
 
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +56,25 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
 
             }
+
         });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginActivity();
+            }
+        });
+
+
+    }
+
+    public void LoginActivity(){
+
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        finish();
+
     }
 
     @Override

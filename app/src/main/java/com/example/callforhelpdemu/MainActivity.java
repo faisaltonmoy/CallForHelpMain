@@ -14,11 +14,11 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView image1,image2,image3;
+    ImageView image1,image3;
     EditText textUsername,textpassword;
     TextView Login,User,ForgetMessage,message,register;
     Button signin;
-    Animation bganim;//Animition image object//
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,20 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         //IMAGE FIND//
         image1=findViewById(R.id.image1);
-        image2=findViewById(R.id.image2);
         image3=findViewById(R.id.image3);
 
-
-        //ANIMATION FIND//
-        bganim= AnimationUtils.loadAnimation(this,R.anim.bganim);
-
-
-
-        //ANIMATION WORK//
-        image2.animate().translationY(-2660).setDuration(1800).setStartDelay(500);
-
-        image1.animate().translationY(0).setDuration(1800).setStartDelay(500);
-        image3.animate().translationY(25).setDuration(3700).setStartDelay(500);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
