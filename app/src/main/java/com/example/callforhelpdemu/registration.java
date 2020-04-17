@@ -43,6 +43,8 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
     private Spinner spinner;
 
+    Informetion informetion;
+
     Button signup_id;
 
     //Database reference object//
@@ -111,9 +113,9 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 Calendar calendar = Calendar.getInstance();
-                final int day = calendar.get(Calendar.DAY_OF_MONTH);
-                final int month = calendar.get(Calendar.MONTH);
-                final int year = calendar.get(Calendar.YEAR);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
 
 
                 datePickerDialog = new DatePickerDialog(registration.this, new DatePickerDialog.OnDateSetListener() {
@@ -148,6 +150,9 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
                 String UserId=userid.getText().toString(); //GET STRING FROM USERID//
                 String PassId=passid.getText().toString().trim(); //GET STRING FROM PASSID//
                 String ConfermPass=cpassid.getText().toString().trim();//GET STRING FROM CONFERM PASSWORD//
+                String Spinner = spinner.getSelectedItem().toString();//GET STRING FROM Spinner//
+                String Date = dob_id.getText().toString();//GET STRING FROM datePicker//
+
 
 
 
@@ -247,7 +252,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
         String key=databaseReference.push().getKey();
 
-            Informetion informetion=new Informetion(fullname,phoneno,UserId);
+            Informetion informetion=new Informetion(fullname,phoneno,UserId,Spinner,Date);
 
 
             //create a child and pass the key and set the value in child//

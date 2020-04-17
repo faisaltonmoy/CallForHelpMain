@@ -145,7 +145,6 @@
                 android:editable="false"
                 android:fontFamily="@font/nuevastdbold"
                 android:hint="Day/Month/Year"
-                android:inputType="textPersonName"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 

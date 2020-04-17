@@ -7,14 +7,18 @@ public class Informetion {
     private String fullname;
     private String phoneno;
     private  String UserId;
-    private Spinner spinner;
+    private String spinner;
+    private  String date;
 
 
-    public Informetion(String fullname, String phoneno, String userId) {
+    public Informetion(String fullname, String phoneno, String userId, String spinner ,String date ) {
+
         this.fullname = fullname;
         this.phoneno = phoneno;
         UserId = userId;
-        //this.spinner=spinner;
+        this.spinner = spinner;
+        this.date = date;
+
     }
 
     public String getFullname() {
@@ -41,5 +45,19 @@ public class Informetion {
         UserId = userId;
     }
 
+    public String getSpinner() {
+        return spinner;
+    }
 
+    public void setSpinner(String spinner) {
+        this.spinner = spinner;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }
