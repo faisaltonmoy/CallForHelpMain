@@ -51,6 +51,17 @@ public class MainActivity extends AppCompatActivity {
         image3=findViewById(R.id.image3);
 
 
+        //THIS PART IS GET THE STRING FROM REGISTRATION JAVA//
+
+        Intent intent = getIntent();
+        String text1 = intent.getStringExtra(registration.Extra);
+        String text2 = intent.getStringExtra(registration.Extra1);
+        textUsername.setText(text1);
+        textpassword.setText(text2);
+
+
+
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 
     }
 

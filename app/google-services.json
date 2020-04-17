@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "56709093553",
+    "firebase_url": "https://callforhelpdemu.firebaseio.com",
+    "project_id": "callforhelpdemu",
+    "storage_bucket": "callforhelpdemu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56709093553:android:ed68458309fecbcbbd6a90",
+        "android_client_info": {
+          "package_name": "com.example.callforhelpdemu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56709093553-de21110dk2iqrda3rg32uea2010smjua.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.callforhelpdemu",
+            "certificate_hash": "f311a1ff2ff662142d6fbffe163cd8d714fe7bcf"
+          }
+        },
+        {
+          "client_id": "56709093553-pnfqj2fhglfec9jtbrbpv52tnclfuh7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPlhsLs9F_7LhfGhAKAiGR24i228N3BXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56709093553-pnfqj2fhglfec9jtbrbpv52tnclfuh7k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
