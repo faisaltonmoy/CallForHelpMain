@@ -5,6 +5,7 @@ package com.example.callforhelpdemu;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -17,10 +18,16 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
@@ -47,12 +54,22 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
     Button signup_id;
 
+
+
     //Database reference object//
-    DatabaseReference  databaseReference;
+    DatabaseReference  databaseReference,regisdatabase;
+
+
+
+    //FirebaseDatabase object//
+    private  FirebaseDatabase firebaseDatabase;
+
 
 
     //ValueEventListener object//
     ValueEventListener valueEventListener;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +114,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
         //DATABASE REFERENCE FIND//
 
         databaseReference= FirebaseDatabase.getInstance().getReference("Information");
+        regisdatabase=FirebaseDatabase.getInstance().getReference("Information");
 
 
 
@@ -113,9 +131,9 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 Calendar calendar = Calendar.getInstance();
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-                int month = calendar.get(Calendar.MONTH);
-                int year = calendar.get(Calendar.YEAR);
+                final int day = calendar.get(Calendar.DAY_OF_MONTH);
+                final int month = calendar.get(Calendar.MONTH);
+                final int year = calendar.get(Calendar.YEAR);
 
 
                 datePickerDialog = new DatePickerDialog(registration.this, new DatePickerDialog.OnDateSetListener() {
@@ -142,16 +160,22 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v) {
 
 
-                String fullname=nameid.getText().toString();//GET STRING FROM FULL NAME ID//
-                String Emailid=emailid.getText().toString().trim();//GET STRING FROM EMAIL ID//
-                String phoneno=phoneid.getText().toString().trim() ;//GET INTEGER FROM PHONE NUMBER//
+                final String fullname=nameid.getText().toString();//GET STRING FROM FULL NAME ID//
+                final String Emailid=emailid.getText().toString().trim();//GET STRING FROM EMAIL ID//
+                final String phoneno=phoneid.getText().toString().trim() ;//GET INTEGER FROM PHONE NUMBER//
                 //int phoneno1=Integer.parseInt(phoneno_id.getText().toString().trim()) ;//GET INTEGER FROM PHONE NUMBER//
                 String date=date_id.getText().toString();//GET INTEGER FROM DATE//
-                String UserId=userid.getText().toString(); //GET STRING FROM USERID//
-                String PassId=passid.getText().toString().trim(); //GET STRING FROM PASSID//
+                final String UserId=userid.getText().toString(); //GET STRING FROM USERID//
+                final String PassId=passid.getText().toString().trim(); //GET STRING FROM PASSID//
                 String ConfermPass=cpassid.getText().toString().trim();//GET STRING FROM CONFERM PASSWORD//
-                String Spinner = spinner.getSelectedItem().toString();//GET STRING FROM Spinner//
-                String Date = dob_id.getText().toString();//GET STRING FROM datePicker//
+                final String Spinner = spinner.getSelectedItem().toString();//GET STRING FROM Spinner//
+                final String Date = dob_id.getText().toString();//GET STRING FROM datePicker//
+
+
+
+
+
+
 
 
 
@@ -193,19 +217,77 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
                     }
 
+                    regisdatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            boolean tree=false;
+
+                            for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
+                            {
+
+                                Informetion informetion1=dataSnapshot1.getValue(Informetion.class);
 
 
-                    //IF EVERY THING IS RIGHT WHEN INTENT THE REGISTRATION ACTIVITY TO MAIN ACTIVITY AND RELOAD THE DATA//
+                                    if(phoneno.equals(informetion1.getPhoneno()))
+                                    {
+                                        tree=true;
+                                        phoneid.setError("Please Enter Another PhoneNO");
+                                        phoneid.requestFocus();
 
-                    Intent intent=new Intent(registration.this,MainActivity.class);
-                    intent.putExtra(Extra,UserId);
-                    intent.putExtra(Extra1,PassId);
-                    startActivity(intent);
+                                    }
+
+                                    if(UserId.equals(informetion1.getUserId()))
+                                    {
+                                        tree=true;
+                                        userid.setError("Please Enter Another User Id");
+                                        userid.requestFocus();
+
+
+                                    }
+
+
+
+
+
+                            }
+                            if(tree==false)
+                            {
+                                //IF EVERY THING IS RIGHT WHEN INTENT THE REGISTRATION ACTIVITY TO MAIN ACTIVITY AND RELOAD THE DATA//
+
+                                Intent intent=new Intent(registration.this,MainActivity.class);
+                                intent.putExtra(Extra,UserId);
+                                intent.putExtra(Extra1,PassId);
+                                startActivity(intent);
+
+                                finish();
+
+
+                                //CREATE A REALTIME DATABASE//
+
+                                String key=databaseReference.push().getKey();
+                                Informetion informetion=new Informetion(fullname,phoneno,UserId,Spinner,Date,PassId,Emailid);
+                                databaseReference.child(key).setValue(informetion);
+
+
+                            }
+
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+
+
                 }
 
 
-
-                 else if(fullname.isEmpty())
+                else if(fullname.isEmpty())
                 {
                     nameid.setError("Please Enter Name");
                     nameid.requestFocus();
@@ -238,31 +320,14 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
                     cpassid.requestFocus();
                 }
 
-
-
                 else
-
-                    return;
-
+                        return;
 
 
 
-
-        //FIND THE DATA BASE KEY & PASS THE OBJECT FROM REGISTRATION  to information java class//
-
-        String key=databaseReference.push().getKey();
-
-            Informetion informetion=new Informetion(fullname,phoneno,UserId,Spinner,Date);
-
-
-            //create a child and pass the key and set the value in child//
-
-            databaseReference.child(key).setValue(informetion);
-            Toast.makeText(getApplicationContext(),"Your Information is addes",Toast.LENGTH_SHORT).show();
 
 
             }
-
 
 
 

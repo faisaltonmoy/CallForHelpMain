@@ -15,6 +15,7 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:src="@drawable/blank"
+        android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -136,10 +137,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/LoginWRITE"
+        android:clickable="true"
         android:textColor="#6C93AB"
         android:layout_marginLeft="195dp"
         android:fontFamily="@font/nuevastdbold"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         />
 

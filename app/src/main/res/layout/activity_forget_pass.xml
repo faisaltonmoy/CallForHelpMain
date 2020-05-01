@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ForgetPass">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blank"
+    android:orientation="vertical"
+    tools:context=".ForgetPass">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:text=" Fill the information to  get password."
+        android:textSize="24sp"
+        android:fontFamily="@font/nuevastdbold"
+        android:textColor="@color/header"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:id="@+id/emailid_id"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nuevastdbold"
+            android:text="Email Id:"
+            android:textAlignment="center"
+            android:textColor="@color/header"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/emailid"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nuevastdbold"
+            android:hint="Enter Your Email Id"
+            android:inputType="textEmailAddress"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/phn_id"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nuevastdbold"
+            android:text="Phone No:"
+            android:textAlignment="center"
+            android:textColor="@color/header"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/phnid"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nuevastdbold"
+            android:hint="Enter your phone no"
+            android:inputType="phone"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/send_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/signin"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="150dp"
+        android:text="Send"
+        android:fontFamily="@font/nuevastdbold"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        />
+
+
+        <TextView
+            android:id="@+id/userid"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nuevastdbold"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/passid"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/nuevastdbold"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textid"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="35dp"
+        android:text="Go back to login page"
+        android:textColor="@color/header"
+        android:fontFamily="@font/nuevastdbold"
+        android:textAlignment="center"
+        android:clickable="true"
+        android:textSize="20sp" />
+
+
+
+
+</LinearLayout>
+</ScrollView>

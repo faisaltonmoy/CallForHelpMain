@@ -9,11 +9,62 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class start extends AppCompatActivity {
+
+
+
+    //CREATE KEY FOR SEND DATA FROM ONE ACTIVITY TO ANOTHER ACTIVITY//
+    public static final String Extra ="com.example.callforhelpdemu.Extra";
+
+
+    //create a object //
 
     private static int time = 2500;
     ImageView image;
     Animation bganim;
+    MainActivity mainActivity = new MainActivity();
+    String sign_in = "Signed In";
+    String sign_out = "Signed Out";
+
+
+    //THIS FUNCTION WRITE THE sta FILE //
+
+    private String check(String File_Name){
+        String st = null;
+        FileInputStream fis0 = null;
+        try {
+            fis0 =openFileInput(File_Name);
+            InputStreamReader isr = new InputStreamReader(fis0);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String text;
+
+            while( (text = br.readLine()) != null ){
+                sb.append(text).append("\n");
+            }
+
+            st = sb.toString();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(fis0 != null) {
+                try {
+                    fis0.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return st;
+    }
+
+
 
 
     @Override
@@ -21,7 +72,13 @@ public class start extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
+
+        //Find the the image//
         image=findViewById(R.id.starting_id);
+
+
+
+        //Create the animation and set the image of splash screen//
 
         bganim= AnimationUtils.loadAnimation(this,R.anim.bganim);
 
@@ -31,9 +88,16 @@ public class start extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent = new Intent(start.this,MainActivity.class);
-                startActivity(intent);
-                finish();
+
+
+
+                 activity();  //Call the function//
+                 finish();
+
+
+
+
+
 
             }
         },time);
@@ -41,4 +105,36 @@ public class start extends AppCompatActivity {
 
     }
 
+
+    //This function decide our project is login or not login//
+
+    private void activity()
+    {
+
+        try{
+            String comp = check("sta.txt").trim();
+            if(comp.equals("Signed In".trim()))
+            {
+                Intent intent = new Intent(start.this, Home2.class);
+                startActivity(intent);
+
+            }
+            else if(comp.equals("Signed Out".trim()))
+            {
+                Intent intent = new Intent(start.this, MainActivity.class);
+                startActivity(intent);
+            }
+        }catch(Exception e)
+        {
+            Intent intent = new Intent(start.this, MainActivity.class);
+            startActivity(intent);
+        }
+    }
+
+
 }
+
+
+
+
+
