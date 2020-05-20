@@ -1,4 +1,4 @@
-package com.example.callforhelpdemu.ui.share;
+package com.example.callforhelpdemu.Nav_UI.Feedback;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,15 +16,15 @@ import com.example.callforhelpdemu.R;
 
 public class ShareFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
+    private FeedbackViewModel feedbackViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_share, container, false);
+        feedbackViewModel =
+                ViewModelProviders.of(this).get(FeedbackViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_feedback, container, false);
         final TextView textView = root.findViewById(R.id.text_share);
-        shareViewModel.getText().observe(this, new Observer<String>() {
+        feedbackViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

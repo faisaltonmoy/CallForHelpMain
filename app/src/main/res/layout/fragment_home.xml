@@ -5,17 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="-2dp"
+    android:layout_marginLeft="-1dp"
+    android:layout_marginRight="-1dp"
     android:background="@drawable/home_console"
     android:weightSum="2"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context=".Home2"
+    tools:context=".Home"
     android:id="@+id/text_home"
     >
 
 <LinearLayout
-    android:layout_marginTop="300dp"
-    android:layout_width="match_parent"
+    android:layout_marginTop="340dp"
+    android:layout_width="wrap_content"
     android:layout_height="0dp"
     android:layout_gravity="center"
     android:layout_weight="1"
@@ -79,7 +82,7 @@
 
 <LinearLayout
     android:layout_marginTop="10dp"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="0dp"
     android:layout_gravity="center"
     android:layout_weight="1"

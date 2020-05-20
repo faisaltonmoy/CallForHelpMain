@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="-2dp"
+    android:layout_marginLeft="-1dp"
+    android:layout_marginRight="-1dp"
     tools:context=".registration">
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,13 +27,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/fullnameid"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="250dp"
                 android:fontFamily="@font/nuevastdbold"
                 android:text="Full Name:"
@@ -63,7 +67,7 @@
                 android:id="@+id/emailid_id"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/nuevastdbold"
                 android:text="Email Id:"
@@ -87,17 +91,17 @@
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/phoneno_id"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/nuevastdbold"
                 android:text="Phone No:"
@@ -119,6 +123,7 @@
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -128,7 +133,7 @@
                 android:id="@+id/date_id"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/nuevastdbold"
                 android:text="Day of Birth:"
@@ -159,7 +164,7 @@
                 android:id="@+id/bloodgrp_id"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/nuevastdbold"
                 android:text="Blood Group:"
@@ -189,7 +194,7 @@
                 android:id="@+id/userid_id"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/nuevastdbold"
                 android:text="User Id:"
@@ -221,7 +226,7 @@
                 android:id="@+id/password_id"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/nuevastdbold"
                 android:text="Password:"
@@ -253,7 +258,7 @@
                 android:id="@+id/cpassword_id"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="-5dp"
                 android:fontFamily="@font/nuevastdbold"
                 android:text="Confirm Password:"
@@ -285,9 +290,9 @@
                 android:id="@+id/signup_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="145dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/signbutton"
                 android:fontFamily="@font/nuevastdbold"
                 android:gravity="center"

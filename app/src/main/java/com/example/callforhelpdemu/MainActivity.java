@@ -3,17 +3,19 @@
 
 package com.example.callforhelpdemu;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -61,16 +63,38 @@ public class MainActivity extends AppCompatActivity implements
     //CREATE A DATABASEREFEREBCE OBJECT//
      DatabaseReference userRefLogin;
 
+    public void onBackPressed() {
+        final AlertDialog.Builder exit = new AlertDialog.Builder(MainActivity.this);
+        exit.setTitle("Alert");
+        exit.setMessage("Are you sure to exit this app?");
+        exit.setIcon(R.drawable.warn_icon);
+        exit.setCancelable(true);
+        exit.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        exit.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
 
+        AlertDialog alert = exit.create();
+        alert.show();
 
-
-
-
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
+
+        //////////////////////////no internet connection function call
+        if(!isConnected(MainActivity.this))
+            buildDialog(MainActivity.this).show();
 
 
         //FIND THE DATABASEREFERENCE OBJECT//
@@ -105,7 +129,6 @@ public class MainActivity extends AppCompatActivity implements
 
 
         //IMAGE FIND//
-        image1=findViewById(R.id.image1);
         image3=findViewById(R.id.image3);
 
 
@@ -117,17 +140,6 @@ public class MainActivity extends AppCompatActivity implements
 
         textUsername.setText(text1);
         textpassword.setText(text2);
-
-
-        Intent intent1 = getIntent();
-        String text3 = intent.getStringExtra(ForgetPass.Extra3);
-        String text4 = intent.getStringExtra(ForgetPass.Extra4);
-        textUsername.setText(text3);
-        textpassword.setText(text4);
-
-
-
-
 
 
         signin.setOnClickListener(this);
@@ -155,69 +167,74 @@ public class MainActivity extends AppCompatActivity implements
                 //CHECKING WITH FIREBASE //
                 Log.d("Atanu", "onDataChange0: ");
 
+                if(isConnected(MainActivity.this))
+                {
+                    //FIND THE DATA FROM DATABASE//
+                    userRefLogin.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            boolean tree = false;
 
-                //FIND THE DATA FROM DATABASE//
-                userRefLogin.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                         boolean tree=false;
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
 
-                        for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
-                        {
-
-                            Log.d("Atanu", "onDataChange1: ");
-
-
-                            Informetion informetion1=dataSnapshot1.getValue(Informetion.class);
+                                Log.d("Atanu", "onDataChange1: ");
 
 
-                            Log.d("Atanu", informetion1.getUserId() +informetion1.getPass() );
+                                Information informetion1 = dataSnapshot1.getValue(Information.class);
 
 
-                            if (userId.equals(informetion1.getUserId()) && passId.equals(informetion1.getPass()))
-                            {
-                                tree=true;
-
-                                Log.d("Atanu", "onDataChange2: ");
-
-                                Intent intent = new Intent(MainActivity.this, Home2.class);
-                                intent.putExtra(Extra,userId);
-                                startActivity(intent);
-
-                                Log.d("Atanu", "onDataChange3:");
+                                Log.d("Atanu", informetion1.getUserId() + informetion1.getPass());
 
 
-                                //CALL THE FUNCTION AND WRITE THE FILE //
+                                if (userId.equals(informetion1.getUserId()) && passId.equals(informetion1.getPass())) {
+                                    tree = true;
 
-                                saveLoginInfoToFile( informetion1.getFullname(),informetion1.getUserId(),informetion1.getPhoneno(),informetion1.getEmail(),informetion1.getDate(),informetion1.getSpinner());
+                                    Log.d("Atanu", "onDataChange2: ");
 
-                                //WRITE THE FILE ONLY FOR Stat file//
-                                FileOutputStream fos0 = null;
-                                try {
-                                    fos0 = openFileOutput(Stat_File, MODE_PRIVATE);
-                                    fos0.write("Signed In".getBytes());
-                                } catch (Exception e) {
-                                    e.printStackTrace();
+                                    Intent intent = new Intent(MainActivity.this, Home.class);
+                                    intent.putExtra(Extra, userId);
+                                    startActivity(intent);
+                                    finish();
+
+
+                                    Log.d("Atanu", "onDataChange3:");
+
+
+                                    //CALL THE FUNCTION AND WRITE THE FILE //
+
+                                    saveLoginInfoToFile(informetion1.getFullname(), informetion1.getUserId(), informetion1.getPhoneno(), informetion1.getEmail(), informetion1.getDate(), informetion1.getSpinner());
+
+                                    //WRITE THE FILE ONLY FOR Stat file//
+                                    FileOutputStream fos0 = null;
+                                    try {
+                                        fos0 = openFileOutput(Stat_File, MODE_PRIVATE);
+                                        fos0.write("Signed In".getBytes());
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
                                 }
+
+                            }
+                            if (tree == false) {
+
+                                Toast.makeText(MainActivity.this, "Invalid User Id or Password", Toast.LENGTH_LONG).show();
                             }
 
                         }
-                        if(tree==false)
-                        {
 
-                            Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
                         }
+                    });
+                }
+                else
+                {
+                    buildDialog(MainActivity.this).show();
+                }
 
-                    }
-
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-
-
-                    }
-                });
 
 
 
@@ -236,21 +253,34 @@ public class MainActivity extends AppCompatActivity implements
                     return;
 
                 break;
+
            case R.id.register:
+               if(isConnected(MainActivity.this))
+               {
+                   Intent intent2 = new Intent(this, registration.class);
+                   startActivity(intent2);
+                   finish();
+                   break;
+               }
+               else
+               {
+                   buildDialog(MainActivity.this).show();
+               }
 
-                Intent intent2 = new Intent(this, registration.class);
-                startActivity(intent2);
-                finish();
-                break;
+            case R.id.Forget:
+                if(isConnected(MainActivity.this))
+                {
 
-                case R.id.Forget:
+                       Intent intent3 = new Intent(this, ForgetPass.class);
+                       startActivity(intent3);
+                       finish();
 
-                    Intent intent3 = new Intent(this, ForgetPass.class);
-                    startActivity(intent3);
-
-                    break;
-
-
+                       break;
+               }
+                else
+                {
+                    buildDialog(MainActivity.this).show();
+                }
 
         }
     }
@@ -333,6 +363,41 @@ public class MainActivity extends AppCompatActivity implements
             }
         }
         return st;
+    }
+
+    ///////////////// no internet  connection
+
+    public boolean isConnected(Context context) {
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netinfo = cm.getActiveNetworkInfo();
+
+        if (netinfo != null && netinfo.isConnectedOrConnecting()) {
+            android.net.NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+            android.net.NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+            if((mobile != null && mobile.isConnectedOrConnecting()) || (wifi != null && wifi.isConnectedOrConnecting())) return true;
+            else
+                return false;
+        } else
+            return false;
+    }
+
+    public AlertDialog.Builder buildDialog(Context c) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+        builder.setIcon(R.drawable.warn_icon);
+        builder.setTitle("No Internet Connection");
+        builder.setMessage("You need to have Mobile Data or Wi-Fi to access this.");
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        return builder;
     }
 
 

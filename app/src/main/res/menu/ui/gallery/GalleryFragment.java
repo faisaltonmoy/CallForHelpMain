@@ -1,4 +1,4 @@
-package com.example.callforhelpdemu.ui.gallery;
+package com.example.callforhelpdemu.Nav_UI.MyProfile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,15 +16,15 @@ import com.example.callforhelpdemu.R;
 
 public class GalleryFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    private MyProfileViewModel myProfileViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        myProfileViewModel =
+                ViewModelProviders.of(this).get(MyProfileViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_my_profile, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(this, new Observer<String>() {
+        myProfileViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

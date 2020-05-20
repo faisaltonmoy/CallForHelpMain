@@ -1,4 +1,4 @@
-package com.example.callforhelpdemu.ui.slideshow;
+package com.example.callforhelpdemu.Nav_UI.AboutUs;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

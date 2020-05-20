@@ -1,4 +1,4 @@
-package com.example.callforhelpdemu.ui.slideshow;
+package com.example.callforhelpdemu.Nav_UI.AboutUs;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,15 +16,15 @@ import com.example.callforhelpdemu.R;
 
 public class SlideshowFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private AboutUsViewModel aboutUsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        aboutUsViewModel =
+                ViewModelProviders.of(this).get(AboutUsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_about_us, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(this, new Observer<String>() {
+        aboutUsViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

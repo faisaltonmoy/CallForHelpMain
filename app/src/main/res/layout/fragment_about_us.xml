@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="-2dp"
+    android:layout_marginLeft="-1dp"
+    android:layout_marginRight="-1dp"
+    android:background="@drawable/about_us_console"
+    android:weightSum="2"
+    android:orientation="horizontal"
+    android:padding="5dp"
+
+
+
+    tools:context=".Home"
+    android:id="@+id/text_home"
+    >
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:layout_marginTop="350dp"
+    >
+
+
+    <ImageView
+        android:id="@+id/tonmoy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/tonmoy_data"
+
+
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:src="@drawable/mahin_data"
+        android:id="@+id/mahin"
+
+        />
+
+    <ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/atanu_data"
+        android:id="@+id/atanu"
+
+        />
+
+
+</FrameLayout>
+
+
+
+</LinearLayout>

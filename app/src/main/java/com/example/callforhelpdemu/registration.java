@@ -4,8 +4,12 @@
 package com.example.callforhelpdemu;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -19,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -50,7 +55,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
     private Spinner spinner;
 
-    Informetion informetion;
+    Information information;
 
     Button signup_id;
 
@@ -69,7 +74,12 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
     //ValueEventListener object//
     ValueEventListener valueEventListener;
 
-
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -172,14 +182,8 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
                 final String Date = dob_id.getText().toString();//GET STRING FROM datePicker//
 
 
-
-
-
-
-
-
-
-
+            if(isConnected(registration.this))
+            {
 
             //CHECK THE ALL CONDITION FOR THE ALL EDITTEXT//
 
@@ -225,7 +229,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
                             for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
                             {
 
-                                Informetion informetion1=dataSnapshot1.getValue(Informetion.class);
+                                Information informetion1=dataSnapshot1.getValue(Information.class);
 
 
                                     if(phoneno.equals(informetion1.getPhoneno()))
@@ -261,12 +265,14 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
                                 finish();
 
+                                Toast.makeText(registration.this, "Registration Completed", Toast.LENGTH_SHORT).show();
+
 
                                 //CREATE A REALTIME DATABASE//
 
-                                String key=databaseReference.push().getKey();
-                                Informetion informetion=new Informetion(fullname,phoneno,UserId,Spinner,Date,PassId,Emailid);
-                                databaseReference.child(key).setValue(informetion);
+                                Information information=new Information(fullname,phoneno,UserId,Spinner,Date,PassId,Emailid);
+                                String key=UserId;
+                                databaseReference.child(key).setValue(information);
 
 
                             }
@@ -324,7 +330,11 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
                         return;
 
 
-
+            }
+            else
+            {
+                buildDialog(registration.this).show();
+            }
 
 
             }
@@ -342,6 +352,37 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+    public boolean isConnected(Context context) {
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netinfo = cm.getActiveNetworkInfo();
+
+        if (netinfo != null && netinfo.isConnectedOrConnecting()) {
+            android.net.NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+            android.net.NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+            if((mobile != null && mobile.isConnectedOrConnecting()) || (wifi != null && wifi.isConnectedOrConnecting())) return true;
+            else
+                return false;
+        } else
+            return false;
+    }
+    public AlertDialog.Builder buildDialog(Context c) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+        builder.setIcon(R.drawable.warn_icon);
+        builder.setTitle("No Internet Connection");
+        builder.setMessage("You need to have Mobile Data or Wi-Fi to access this.");
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        return builder;
     }
 }
 

@@ -27,9 +27,6 @@ public class start extends AppCompatActivity {
     private static int time = 2500;
     ImageView image;
     Animation bganim;
-    MainActivity mainActivity = new MainActivity();
-    String sign_in = "Signed In";
-    String sign_out = "Signed Out";
 
 
     //THIS FUNCTION WRITE THE sta FILE //
@@ -115,7 +112,7 @@ public class start extends AppCompatActivity {
             String comp = check("sta.txt").trim();
             if(comp.equals("Signed In".trim()))
             {
-                Intent intent = new Intent(start.this, Home2.class);
+                Intent intent = new Intent(start.this, Home.class);
                 startActivity(intent);
 
             }

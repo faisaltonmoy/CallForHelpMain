@@ -86,13 +86,13 @@ public class ForgetPass extends AppCompatActivity implements View.OnClickListene
 
                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
 
-                            Informetion forget = dataSnapshot1.getValue(Informetion.class);
+                            Information forget = dataSnapshot1.getValue(Information.class);
 
                             if (emailId.equals(forget.getEmail()) && phnId.equals(forget.getPhoneno())) {
                                 tree = true;
                                 Toast.makeText(ForgetPass.this, "Correct Information", Toast.LENGTH_SHORT).show();
                                 saveData(forget.getUserId(), forget.getPass());
-                                Toast.makeText(ForgetPass.this, "Click on the text below", Toast.LENGTH_LONG).show();
+                                Toast.makeText(ForgetPass.this, "Click on the text below", Toast.LENGTH_SHORT).show();
 
                                 user.setText(check("forget_user.txt"));
                                 pass.setText(check("forget_pass.txt"));
@@ -127,16 +127,7 @@ public class ForgetPass extends AppCompatActivity implements View.OnClickListene
                 break;
             case R.id.textid:
 
-
-                String data1=user.getText().toString().trim();
-                String data2= pass.getText().toString();
-
                 Intent intent = new Intent(this, MainActivity.class);
-
-                intent.putExtra(Extra3,data1);
-                intent.putExtra(Extra4,data2);
-
-
                 startActivity(intent);
                 finish();
 
