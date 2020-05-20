@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CallForHelpDemu</string>
+    <string name="app_name">CallForHelp</string>
     <string name="FontTitle">Login</string>
     <string name="LoginUser">User Id:</string>
     <string name="LoginPassword">Password:</string>
