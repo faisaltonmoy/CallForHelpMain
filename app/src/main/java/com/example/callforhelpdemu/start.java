@@ -19,7 +19,7 @@ public class start extends AppCompatActivity {
 
 
     //CREATE KEY FOR SEND DATA FROM ONE ACTIVITY TO ANOTHER ACTIVITY//
-    public static final String Extra ="com.example.callforhelpdemu.Extra";
+   //public static final String Extra ="com.example.callforhelpdemu.Extra";
 
 
     //create a object //
@@ -85,16 +85,8 @@ public class start extends AppCompatActivity {
             @Override
             public void run() {
 
-
-
-
                  activity();  //Call the function//
                  finish();
-
-
-
-
-
 
             }
         },time);

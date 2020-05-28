@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,33 +15,39 @@
     android:id="@+id/text_home"
     >
 
+
+
 <LinearLayout
-    android:layout_marginTop="340dp"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:layout_gravity="center"
-    android:layout_weight="1"
-    android:orientation="horizontal">
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:layout_weight=".8"
+    android:layout_marginTop="370dp">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/HospitalCardView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_weight="1"
         android:clickable="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/HospitalImage"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
-                android:layout_margin="27dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="27dp"
                 android:background="@drawable/hospital" />
 
 
@@ -52,8 +57,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/PoliceStationCardView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_weight="1"
         android:clickable="true">
@@ -61,14 +66,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             >
 
             <ImageView
                 android:id="@+id/PoliceStationImage"
-                android:layout_width="138dp"
-                android:layout_height="123dp"
+                android:layout_width="128dp"
+                android:layout_height="120dp"
                 android:layout_gravity="center"
-                android:layout_margin="22dp"
+                android:layout_margin="25dp"
                 android:background="@drawable/policestation"
                 />
 
@@ -81,19 +87,18 @@
 </LinearLayout>
 
 <LinearLayout
-    android:layout_marginTop="10dp"
-    android:layout_width="wrap_content"
+    android:layout_marginTop="0dp"
+    android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:layout_gravity="center"
-    android:layout_weight="1"
-    android:clipToPadding="false"
+    android:gravity="center"
+    android:layout_weight=".8"
     android:orientation="horizontal">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/FireServiceCardView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_weight="1"
         android:clickable="true">
@@ -101,6 +106,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             >
 
             <ImageView
@@ -119,8 +125,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/AmbulanceCardView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_weight="1"
         android:clickable="true">
@@ -128,6 +134,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             >
 
             <ImageView
@@ -147,6 +154,7 @@
 
 </LinearLayout>
 
-
 </LinearLayout>
+
+
 

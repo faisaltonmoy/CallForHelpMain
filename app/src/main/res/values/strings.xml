@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CallForHelpDemu</string>
+    <string name="app_name">CallForHelp</string>
     <string name="FontTitle">Login</string>
     <string name="LoginUser">User Id:</string>
     <string name="LoginPassword">Password:</string>
@@ -42,4 +42,6 @@
     <string name="menu_send">Send</string>
     <string name="title_activity_home2">Home2</string>
     <string name="Hospital">Hospital</string>
+
+
 </resources>

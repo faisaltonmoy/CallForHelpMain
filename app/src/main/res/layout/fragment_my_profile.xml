@@ -18,15 +18,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="330dp"
         android:orientation="horizontal">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="350dp"
+            android:layout_marginLeft="20dp"
             android:fontFamily="@font/nuevastdbold"
             android:text="Name:"
             android:textColor="@color/header"
@@ -37,7 +37,6 @@
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="350dp"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -45,6 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
 
@@ -53,8 +53,7 @@
             android:layout_height="wrap_content"
             android:text="Email Id:"
             android:fontFamily="@font/nuevastdbold"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
             android:textSize="25sp"
             android:textColor="@color/header"
             />
@@ -63,7 +62,6 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
             android:textSize="15sp"
             />
     </LinearLayout>
@@ -71,6 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
 
@@ -79,8 +78,7 @@
             android:layout_height="wrap_content"
             android:text="Phone No:"
             android:fontFamily="@font/nuevastdbold"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
             android:textSize="25sp"
             android:textColor="@color/header"
             />
@@ -90,13 +88,13 @@
             android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
             android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
 
@@ -105,8 +103,7 @@
             android:layout_height="wrap_content"
             android:text="Day Of Birth:"
             android:fontFamily="@font/nuevastdbold"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
             android:textSize="25sp"
             android:textColor="@color/header"
             />
@@ -115,7 +112,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
+
             android:textSize="18sp"
             />
     </LinearLayout>
@@ -123,6 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
 
@@ -131,8 +129,7 @@
             android:layout_height="wrap_content"
             android:text="Blood Group:"
             android:fontFamily="@font/nuevastdbold"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
             android:textSize="25sp"
             android:textColor="@color/header"
             />
@@ -141,7 +138,6 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
             android:textSize="18sp"
             />
 

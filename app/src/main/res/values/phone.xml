@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="phone1">
+        <br>
+        +8801713488411,\n</br>
+        <br>
+        +8801713488415</br>
+    </string>
+
+    <string name="phone2">
+        <br>
+        9896623, \n</br>
+        <br>
+        +8801714090000, \n</br>
+        <br>
+        +8801713063067</br>
+    </string>
+
+    <string name="phone3">
+        <br>
+        9127867, \n</br>
+        <br>
+        8114980, \n</br>
+        <br>
+        8125549</br>,
+    </string>
+
+    <string name="phone4">
+        <br>
+        9336611,   \n</br>
+        <br>
+        7411660, \n</br>
+        <br>
+        7410786, \n</br>
+        <br>
+        9355755</br>
+    </string>
+
+    <string name="phone5">
+        <br>
+        8117576, \n</br>
+        <br>
+        9131688, \n</br>
+        <br>
+        +8801713205555, \n</br>
+        <br>
+        +8801552637705, \n</br>
+        <br>
+        +8801819253777</br>
+    </string>
+
+    <string name="phone6">
+        <br>
+        9661551</br>
+    </string>
+
+    <string name="phone7">
+        <br>
+        9015344,\n</br>
+        <br>
+        8014476</br>
+    </string>
+
+    <string name="phone8">
+        <br>
+        8614001</br>
+    </string>
+
+    <string name="phone9">
+        <br>
+        +8801733972986</br>
+    </string>
+
+    <string name="phone10">
+        <br>
+        9871469, \n</br>
+        <br>
+        9870011, \n</br>
+        <br>
+        8822779</br>
+    </string>
+
+    <string name="phone11">
+        <br>
+        +8801711191947</br>
+    </string>
+    <string name="phone12">
+        <br>
+        9123073,\n</br>
+        <br>
+         +8801711544328</br>
+    </string>
+
+    <string name="phone13">
+        <br>
+        +8626812\n</br>
+    </string>
+
+    <string name="phone14">
+        <br>
+        +8801790509607</br>
+    </string>
+
+    <string name="phone15">
+        <br>
+        8116061, \n</br>
+        <br>
+        8116062, \n</br>
+        <br>
+        8114571, \n</br>
+        <br>
+        8114572</br>
+    </string>
+
+    <string name="phone16">
+        <br>
+        7710066, \n</br>
+        <br>
+        7713489, \n</br>
+        <br>
+        +880171682583</br>
+
+    </string>
+
+    <string name="phone17">
+        <br>
+        9555555, \n</br>
+        <br>
+        9553333</br>
+    </string>
+
+    <string name="phone18">
+        <br>
+        8612412</br>
+    </string>
+
+    <string name="phone19">
+        <br>
+        8311721, \n</br>
+        <br>
+        8311725</br>
+    </string>
+
+    <string name="phone20">
+        <br>
+        9671141, \n</br>
+        <br>
+        9671142, \n</br>
+        <br>
+        9671143, \n</br>
+        <br>
+        +8801713003004</br>
+    </string>
+
+    <string name="phone21">
+        <br>
+        9355801, \n</br>
+        <br>
+        9355802, \n</br>
+        <br>
+        9360331, \n</br>
+        <br>
+        9360332</br>
+    </string>
+
+    <string name="phone22">
+        <br>
+        9336421, \n</br>
+        <br>
+        9336422, \n</br>
+        <br>
+        9336423, \n</br>
+        <br>
+        9360965</br>
+    </string>
+    <string name="phone23">
+        <br>
+        9027962, \n</br>
+        <br>
+        9027963, \n</br>
+        <br>
+        9028101, \n</br>
+        <br>
+        9028102</br>
+    </string>
+
+    <string name="phone24">
+        <br>
+        8811751, \n</br>
+        <br>
+        8860523</br>
+    </string>
+
+    <string name="phone25">
+        <br>
+        +8801911333311</br>
+    </string>
+
+    <string name="phone26">
+        <br>
+        8155550, \n</br>
+        <br>
+        8155551, \n</br>
+        <br>
+        8155552</br>
+    </string>
+
+    <string name="phone26a">
+        <br>
+        +8801713330088, \n</br>
+        <br>
+        +8801713091940</br>
+    </string>
+
+    <string name="phone27">
+        <br>
+        8319802, \n</br>
+        <br>
+        8318529, \n</br>
+        <br>
+        +8801732675603</br>
+    </string>
+
+    <string name="phone128">
+        <br>
+        +8801847004999</br>
+    </string>
+
+    <string name="phone29">
+        <br>
+        8624907, \n</br>
+        <br>
+        8624908, \n</br>
+        <br>
+        8624909, \n</br>
+        <br>
+        8624910, \n</br>
+        <br>
+        8810164, \n</br>
+        <br>
+        +8801711533333</br>
+    </string>
+
+    <string name="phone30">
+        <br>
+        8154047, \n</br>
+        <br>
+        +8801714088974</br>
+    </string>
+
+    <string name="phone31">
+        <br>
+        8114089, \n</br>
+        <br>
+        9122560, \n</br>
+        <br>
+        9122561, \n</br>
+        <br>
+        9122562</br>
+    </string>
+
+    <string name="phone33">
+        <br>
+        8144466, \n</br>
+        <br>
+        8144477</br>
+    </string>
+    <string name="phone34">
+        <br>
+        9130800, \n</br>
+        <br>
+        9122560, \n</br>
+        <br>
+        9122569</br>
+    </string>
+
+    <string name="phone35">
+        <br>
+        9131901, \n</br>
+        <br>
+        +8801711600925</br>
+    </string>
+
+    <string name="phone36">
+        <br>
+        9111758, \n</br>
+        <br>
+        8114571, \n</br>
+        <br>
+        8114572</br>
+    </string>
+
+    <string name="phone37">
+        <br>
+        8616565</br>
+    </string>
+
+    <string name="phone32">
+        <br>
+        9330188, \n</br>
+        <br>
+        9330189</br>
+    </string>
+
+    <string name="phone38">
+        <br>
+        8127114, \n</br>
+        <br>
+        +880171139077</br>
+    </string>
+
+
+
+</resources>
