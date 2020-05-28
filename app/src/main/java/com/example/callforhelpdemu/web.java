@@ -23,11 +23,27 @@ public class web extends AppCompatActivity {
         //WEB SEARCH FROM MAP TITLE//
 
         webView = (WebView) findViewById(R.id.web);
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://www.google.com/search?q=" + check("url.txt"));
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
+        webView.setWebViewClient(new WebViewClient()
+                   {
+                       @Override
+                       public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                           if( url.startsWith("http:") || url.startsWith("https:") ) {
+                               return false;
+                           }
+
+                           // Otherwise allow the OS to handle things like tel, mailto, etc.
+                           Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                           startActivity(intent);
+                           return true;
+                       }
+
+                   }
+        );
+        webView.loadUrl("https://www.google.com/search?q=" + check("url.txt"));
 
     }
 
