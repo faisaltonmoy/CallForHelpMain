@@ -17,7 +17,7 @@ public class AboutUsFragment extends Fragment implements View.OnClickListener {
     AboutUsViewModel aboutUsViewModel;
 
 
-    //CREATE THE OBJECT//
+    //********************* CREATE THE OBJECT ***********************//
     ImageView image1 , image2 , image3;
 
 
@@ -29,7 +29,7 @@ public class AboutUsFragment extends Fragment implements View.OnClickListener {
          aboutUsViewModel = ViewModelProviders.of(this).get(AboutUsViewModel.class);
         View root = inflater.inflate(layout.fragment_about_us, container, false);
 
-        //FIND THE OBJECT//
+        //*************** FIND THE OBJECT ********************//
          image1 =root.findViewById(id.atanu);
          image2 =root.findViewById(id.mahin);
          image3 =root.findViewById(id.tonmoy);

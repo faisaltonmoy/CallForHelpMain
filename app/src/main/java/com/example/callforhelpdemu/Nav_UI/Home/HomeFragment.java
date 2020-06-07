@@ -23,7 +23,7 @@ import java.io.FileOutputStream;
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
 
-    //CREATE A OBJECT //
+    //****************** CREATE A OBJECT ****************************//
     private HomeViewModel homeViewModel;
     private CardView HospitalCardView,PoliceStationCardView,FireServiceCardView,AmbulanceCardView;
 
@@ -37,7 +37,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
 
-        //FIND THE CARD VIEW//
+        //******************* FIND THE CARD VIEW *******************//
         HospitalCardView=root.findViewById(R.id.HospitalCardView);
         PoliceStationCardView=root.findViewById(R.id.PoliceStationCardView);
         FireServiceCardView=root.findViewById(R.id.FireServiceCardView);
@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     }
 
 
-    //INTENT TO MAPSACTIVITY AND SAVE FILE WITH RESPECTIVE CARD VIEW//
+    //******************* INTENT TO MAPS ACTIVITY AND SAVE FILE WITH RESPECTIVE CARD VIEW ************************//
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.HospitalCardView)

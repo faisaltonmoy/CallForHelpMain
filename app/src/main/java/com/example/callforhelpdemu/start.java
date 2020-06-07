@@ -18,18 +18,16 @@ public class start extends AppCompatActivity {
 
 
 
-    //CREATE KEY FOR SEND DATA FROM ONE ACTIVITY TO ANOTHER ACTIVITY//
-   //public static final String Extra ="com.example.callforhelpdemu.Extra";
 
 
-    //create a object //
+    //***************** create a object **********************************//
 
     private static int time = 2500;
     ImageView image;
     Animation bganim;
 
 
-    //THIS FUNCTION WRITE THE sta FILE //
+    //************************ THIS FUNCTION READ THE sta FILE *************************************//
 
     private String check(String File_Name){
         String st = null;
@@ -70,12 +68,12 @@ public class start extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
 
-        //Find the the image//
+        //************************ Find the the image **********************************//
         image=findViewById(R.id.starting_id);
 
 
 
-        //Create the animation and set the image of splash screen//
+        //**************************** Create the animation and set the image of splash screen *************************//
 
         bganim= AnimationUtils.loadAnimation(this,R.anim.bganim);
 
@@ -95,7 +93,7 @@ public class start extends AppCompatActivity {
     }
 
 
-    //This function decide our project is login or not login//
+    //********************** This function decide our project is login or not login ******************************//
 
     private void activity()
     {

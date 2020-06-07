@@ -39,13 +39,13 @@ import java.util.Calendar;
 
 public class registration extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    //CREATE KEY FOR SEND DATA FROM ONE ACTIVITY TO ANOTHER ACTIVITY//
+    //*************** CREATE KEY FOR SEND DATA FROM ONE ACTIVITY TO ANOTHER ACTIVITY ****************//
     public static final String Extra ="com.example.callforhelpdemu.Extra";
     public static final String Extra1 ="com.example.callforhelpdemu.Extra1";
 
 
 
-    //OBJECT CREATE//
+    //******************* OBJECT CREATE **************************//
 
     TextView fullnameid,emailid_id,phoneno_id,date_id,bloodgrp_id,userid_id,password_id,cpassword_id;
 
@@ -61,17 +61,17 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-    //Database reference object//
+    //*************** Database reference object ***********************//
     DatabaseReference  databaseReference,regisdatabase;
 
 
 
-    //FirebaseDatabase object//
+    //****************** Fire base Database object *********************//
     private  FirebaseDatabase firebaseDatabase;
 
 
 
-    //ValueEventListener object//
+    //****************** ValueEventListener object ********************//
     ValueEventListener valueEventListener;
 
     @Override
@@ -86,14 +86,14 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration);
 
-        //DATE FIND//
+        //************* DATE FIND ****************//
         date = findViewById(R.id.dob_id);
 
-        //SPINNER FIND//
+        //************* SPINNER FIND *************//
         spinner = findViewById(R.id.spin_id);
 
 
-        //TEXTVIEW FIND//
+        //************** TEXT VIEW FIND *************//
         fullnameid=findViewById(R.id.fullnameid);
         emailid_id=findViewById(R.id.emailid_id);
         phoneno_id=findViewById(R.id.phoneno_id);
@@ -105,7 +105,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-        //EditText FIND//
+        //************* EditText FIND ***************//
         nameid=findViewById(R.id.name_id);
         emailid=findViewById(R.id.emailid);
         phoneid=findViewById(R.id.phoneid);
@@ -115,13 +115,13 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
         cpassid=findViewById(R.id.cpassid);
 
 
-        //BUTTON FIND//
+        //************** BUTTON FIND ***************//
 
         signup_id=findViewById(R.id.signup_id);
 
 
 
-        //DATABASE REFERENCE FIND//
+        //************* DATABASE REFERENCE FIND **************//
 
         databaseReference= FirebaseDatabase.getInstance().getReference("Information");
         regisdatabase=FirebaseDatabase.getInstance().getReference("Information");
@@ -163,7 +163,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-        //CREATE ACTION LISTENER FOR SIGNUP BUTTON//
+        //********** CREATE ACTION LISTENER FOR SIGN UP BUTTON *****************//
 
         signup_id.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,7 +185,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
             if(isConnected(registration.this))
             {
 
-            //CHECK THE ALL CONDITION FOR THE ALL EDITTEXT//
+            //************ CHECK THE ALL CONDITION FOR THE ALL EDIT TEXT ***********************//
 
                 if(!fullname.isEmpty() && !Emailid.isEmpty() && !UserId.isEmpty() && !PassId.isEmpty() && !ConfermPass.isEmpty() &&  !phoneno.isEmpty() && !date.isEmpty())
                 {
@@ -256,7 +256,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
                             }
                             if(tree==false)
                             {
-                                //IF EVERY THING IS RIGHT WHEN INTENT THE REGISTRATION ACTIVITY TO MAIN ACTIVITY AND RELOAD THE DATA//
+                                //****************** IF EVERY THING IS RIGHT WHEN INTENT THE REGISTRATION ACTIVITY TO MAIN ACTIVITY AND RELOAD THE DATA ****************//
 
                                 Intent intent=new Intent(registration.this,MainActivity.class);
                                 intent.putExtra(Extra,UserId);
@@ -268,7 +268,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
                                 Toast.makeText(registration.this, "Registration Completed", Toast.LENGTH_SHORT).show();
 
 
-                                //CREATE A REALTIME DATABASE//
+                                //**************** CREATE A REALTIME DATABASE ************************//
 
                                 Information information=new Information(fullname,phoneno,UserId,Spinner,Date,PassId,Emailid);
                                 String key=UserId;

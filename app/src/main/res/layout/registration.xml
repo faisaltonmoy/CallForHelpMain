@@ -11,23 +11,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/blank"
+        android:background="@drawable/registration"
         android:orientation="vertical"
         tools:context=".registration">
 
-
-        <ImageView
-            android:layout_width="220dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/registration" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="380dp"
             android:padding="10dp"
             android:orientation="horizontal">
 
@@ -39,7 +32,7 @@
                 android:text="Full Name:"
                 android:textAlignment="center"
                 android:textColor="@color/header"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/name_id"
@@ -50,7 +43,7 @@
                 android:inputType="textPersonName"
                 android:hint="Enter Full Name"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
 
 
@@ -71,7 +64,7 @@
                 android:text="Email Id:"
                 android:textAlignment="center"
                 android:textColor="@color/header"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/emailid"
@@ -82,7 +75,7 @@
                 android:hint="Enter Valid Email Id"
                 android:inputType="textEmailAddress"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
 
 
@@ -104,7 +97,7 @@
                 android:text="Phone No:"
                 android:textAlignment="center"
                 android:textColor="@color/header"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/phoneid"
@@ -115,7 +108,7 @@
                 android:hint="Enter Valid Phone No"
                 android:inputType="phone"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
 
         </LinearLayout>
@@ -147,7 +140,7 @@
                 android:fontFamily="@font/nuevastdbold"
                 android:hint="Day/Month/Year"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -166,7 +159,7 @@
                 android:text="Blood Group:"
                 android:textAlignment="center"
                 android:textColor="@color/header"
-                android:textSize="17sp" />
+                android:textSize="15sp" />
 
             <Spinner
                 android:id="@+id/spin_id"
@@ -195,7 +188,7 @@
                 android:text="User Id:"
                 android:textAlignment="center"
                 android:textColor="@color/header"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/userid"
@@ -206,7 +199,7 @@
                 android:hint="Enter User Id"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
 
         </LinearLayout>
@@ -226,7 +219,7 @@
                 android:text="Password:"
                 android:textAlignment="center"
                 android:textColor="@color/header"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/passid"
@@ -237,7 +230,7 @@
                 android:hint="At least 8 Character"
                 android:inputType="textPassword"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
 
         </LinearLayout>
@@ -269,7 +262,7 @@
                 android:hint="Re-type"
                 android:inputType="textPassword"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
 
         </LinearLayout>

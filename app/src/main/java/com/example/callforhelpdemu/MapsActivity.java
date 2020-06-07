@@ -79,7 +79,7 @@ public class MapsActivity extends FragmentActivity implements
             CheckUserLocationPermission();
         }
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        //************************* Obtain the SupportMapFragment and get notified when the map is ready to be used. *************************//
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -114,7 +114,7 @@ public class MapsActivity extends FragmentActivity implements
     {
         switch (v.getId())
         {
-            // SEARCH ANY ADDRESS IN EDIT TEXT//
+            //****************** SEARCH ANY ADDRESS IN EDIT TEXT ****************************//
             case R.id.search_button_id:
             if(isConnected(MapsActivity.this))
             {
@@ -187,7 +187,7 @@ public class MapsActivity extends FragmentActivity implements
 
     }
 
-    // CHECK FILE & RETURN RESPECTIVE OPTION//
+    //***************** CHECK FILE & RETURN RESPECTIVE OPTION ************************//
 
     public void conditionCheck()
     {
@@ -301,7 +301,7 @@ public class MapsActivity extends FragmentActivity implements
         }
     }
 
-    //ASKING PERMISSION FOR ALLOW ACCESS//
+    //**************** ASKING PERMISSION FOR ALLOW ACCESS *********************//
 
     public boolean CheckUserLocationPermission()
     {
@@ -324,7 +324,7 @@ public class MapsActivity extends FragmentActivity implements
 
     }
 
-    //PERMISSION REQUEST RESPONSE FROM USER//
+    //****************** PERMISSION REQUEST RESPONSE FROM USER **************************//
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
@@ -352,7 +352,7 @@ public class MapsActivity extends FragmentActivity implements
 
     }
 
-    //GOOGLE API BUILDING CONNECTION//
+    //****************** GOOGLE API BUILDING CONNECTION *********************//
 
     protected synchronized void buildGoogleApiCleint()
     {
@@ -365,7 +365,7 @@ public class MapsActivity extends FragmentActivity implements
         googleApiClient.connect();
     }
 
-    //USERS CURRENT LOCATION//
+    //******************** USERS CURRENT LOCATION **************************//
 
     @Override
     public void onLocationChanged(Location location)
@@ -398,7 +398,7 @@ public class MapsActivity extends FragmentActivity implements
 
     }
 
-    //MOVING OBJECT LOCATION//
+    //************************ MOVING OBJECT LOCATION *************************//
 
     @Override
     public void onConnected(@Nullable Bundle bundle)
@@ -418,7 +418,7 @@ public class MapsActivity extends FragmentActivity implements
 
     }
 
-    //READ FILE AND RETURN STRING//
+    //************************** READ FILE AND RETURN STRING ************************//
 
     private String check(String File_Name){
 

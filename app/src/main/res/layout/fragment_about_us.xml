@@ -21,6 +21,16 @@
     >
 
 
+
+
+
+    <ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/tonmoy_data"
+        android:id="@+id/tonmoy"
+
+        />
     <ImageView
         android:id="@+id/mahin"
         android:layout_width="match_parent"
@@ -35,14 +45,6 @@
 
         android:src="@drawable/atanu_data"
         android:id="@+id/atanu"
-
-        />
-
-    <ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:src="@drawable/tonmoy_data"
-        android:id="@+id/tonmoy"
 
         />
 

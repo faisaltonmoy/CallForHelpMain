@@ -47,17 +47,17 @@ public class FeedbackFragment extends Fragment implements
                 ViewModelProviders.of(this).get(FeedbackViewModel.class);
         View root = inflater.inflate(R.layout.fragment_feedback, container, false);
 
-        //ID FIND//
+        //************** ID FIND **********************//
         rate = root.findViewById(R.id.rate_id);
         feedback = root.findViewById(R.id.feedback_id);
         submit = root.findViewById(R.id.submit_btn_id);
 
-        //SPINNER VALUE ADD//
+        //************ SPINNER VALUE ADD *********************//
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(), R.array.rate_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         rate.setAdapter(adapter);
 
-        //DATABASE REFERENCE//
+        //****************** DATABASE REFERENCE *******************//
         dbref = FirebaseDatabase.getInstance().getReference("FeedBack");
         feed_msg=FirebaseDatabase.getInstance().getReference("FeedBack");
 
@@ -75,7 +75,7 @@ public class FeedbackFragment extends Fragment implements
         final String Rate = rate.getSelectedItem().toString();//GET STRING FROM Spinner//
         final String Msg = feedback.getText().toString();//GET FEEDBACK FROM EDIT TEXT//
 
-        //GET FEEDBACK FROM USER AND STORE IN DATABASE//
+        //***************** GET FEEDBACK FROM USER AND STORE IN DATABASE *********************//
 
         feed_msg.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

@@ -25,20 +25,20 @@ import java.io.InputStreamReader;
 
 public class ForgetPass extends AppCompatActivity implements View.OnClickListener {
 
-    //CREATE KEY FOR SEND DATA FROM ONE ACTIVITY TO ANOTHER ACTIVITY//
+    //***************** CREATE KEY FOR SEND DATA FROM ONE ACTIVITY TO ANOTHER ACTIVITY ******************//
     public static final String Extra3 ="com.example.callforhelpdemu.Extra3";
     public static final String Extra4 ="com.example.callforhelpdemu.Extra4";
 
-    //CREATE THE OBJECT//
+    //***************** CREATE THE OBJECT *********************************//
     EditText email, phn;
     TextView user, pass, textBtn;
     Button send;
 
-    //CREATE THE FILE NAME//
+    //****************** CREATE THE FILE NAME *****************************//
     public static final String ForgetuserId_txt = "forget_user.txt";
     public static final String Forgetpass_txt = "forget_pass.txt";
 
-    //CREATE THE DATABASE REFERENCE OBJECT//
+    //******************** CREATE THE DATABASE REFERENCE OBJECT **************************//
     DatabaseReference Forgetpass;
 
 
@@ -47,10 +47,10 @@ public class ForgetPass extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_pass);
 
-        //FIND THE DATABASE REFERENCE//
+        //******************* FIND THE DATABASE REFERENCE ************************//
         Forgetpass = FirebaseDatabase.getInstance().getReference().child("Information");
 
-        //FIND THE OBJECT//
+        //********************* FIND THE OBJECT **********************//
         email = findViewById(R.id.emailid);
         phn = findViewById(R.id.phnid);
         user = findViewById(R.id.userid);
@@ -66,7 +66,7 @@ public class ForgetPass extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
 
-        //GET THE INFORMATION FROM USER//
+        //***************** GET THE INFORMATION FROM USER **********************//
         final String emailId = email.getText().toString().trim();
         final String phnId = phn.getText().toString().trim();
 
@@ -76,7 +76,7 @@ public class ForgetPass extends AppCompatActivity implements View.OnClickListene
 
                 Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
 
-                 //DATA RETRIVE FROM DATABASE//
+                 //************* DATA RETRIVE FROM DATABASE ********************//
 
                 Forgetpass.addListenerForSingleValueEvent(new ValueEventListener() {
 
@@ -138,7 +138,7 @@ public class ForgetPass extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    //THIS FUNCTION IS WRITE FILE//
+    //******************** THIS FUNCTION IS WRITE FILE ***************************//
 
     public void saveData(String user, String pass)
     {
@@ -158,7 +158,7 @@ public class ForgetPass extends AppCompatActivity implements View.OnClickListene
         }
     }
 
-    //THIS FUNCTION IS READ FILE//
+    //******************* THIS FUNCTION IS READ FILE ************************//
     private String check(String File_Name){
         String st = null;
         FileInputStream fis0 = null;

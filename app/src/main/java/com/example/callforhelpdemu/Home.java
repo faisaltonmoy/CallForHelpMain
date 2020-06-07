@@ -42,7 +42,7 @@ import java.io.InputStreamReader;
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
 
-    //CREATE THE OBJECT//
+    //********************* CREATE THE OBJECT ***************************//
     private AppBarConfiguration mAppBarConfiguration;
     private TextView menu_user,menu_email;
     private View hview;
@@ -84,14 +84,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
 
 
-    //THIS PART IS GET THE STRING FROM MAIN ACTIVITY JAVA//
-        /*Intent intent = getIntent();
-        String text1 = intent.getStringExtra(MainActivity.Extra);
-        String text2 = intent.getStringExtra(start.Extra);*/
-
-
-
-
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -107,7 +99,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         NavigationView navigationView = findViewById(R.id.nav_view);
 
 
-        //FIND THE TEXT FROM MAIN ACTIVITY//
+        //********************** FIND THE TEXT FROM MAIN ACTIVITY ******************//
         hview=navigationView.getHeaderView(0);
         menu_user=hview.findViewById(R.id.menu_user_id);
         menu_email=hview.findViewById(R.id.menu_email_id);
@@ -117,7 +109,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        //DATA RETRIVE FROM THE FILE AND SET THE MENU NAVIGATION BER//
+        //************************** DATA RETRIVE FROM THE FILE AND SET THE MENU NAVIGATION BER ***************************//
         menu_user.setText(check("user.txt"));
         menu_email.setText(check("email.txt"));
 
@@ -143,7 +135,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        //THIS PART IS CHECK THE CONDITION FOR SHOW THE ALERT NOTIFICATION WHEN WE CLICK MENU OPTION//
+        //****************** THIS PART IS CHECK THE CONDITION FOR SHOW THE ALERT NOTIFICATION WHEN WE CLICK MENU OPTION *************************//
 
         if(item.getItemId()==R.id.action_logout)
         {
@@ -168,7 +160,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                     Toast.makeText(Home.this, "Signed Out", Toast.LENGTH_SHORT).show();
                     finish();
 
-                    //THIS PART WRITE THE Sta FILE FOR SIGN OUT//
+                    //*************** THIS PART WRITE THE Sta FILE FOR SIGN OUT **************************//
 
                     FileOutputStream fos0 = null;
                     try {
@@ -248,7 +240,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         return true;
     }
 
-    //THIS FUNCTION READ THE FILE AND RETURN STRING//
+    //*********************** THIS FUNCTION READ THE FILE AND RETURN STRING ********************//
 
     public String check(String File_Name){
         String st = null;

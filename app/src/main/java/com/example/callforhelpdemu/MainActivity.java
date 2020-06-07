@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity implements
         View.OnClickListener  {
 
 
-    //CREATE KEY FOR SEND DATA FROM ONE ACTIVITY TO ANOTHER ACTIVITY//
+    //****************** CREATE KEY FOR SEND DATA FROM ONE ACTIVITY TO ANOTHER ACTIVITY ************************//
     public static final String Extra ="com.example.callforhelpdemu.Extra";
 
 
-    //CREATE A FILE NAME//
+    //******************** CREATE A FILE NAME ***************************//
     public static final String Stat_File = "sta.txt";
     public static final String user_File = "user.txt";
     public static final String name_File = "name.txt";
@@ -53,14 +53,14 @@ public class MainActivity extends AppCompatActivity implements
     public static final String BLD_File = "blood.txt";
 
 
-    //CREATE A OBJECT//
+    //************************ CREATE A OBJECT **************************//
     ImageView image1,image3;
     EditText textUsername,textpassword;
     TextView Login,User,ForgetMessage,message,register;
     Button signin;
 
 
-    //CREATE A DATABASEREFEREBCE OBJECT//
+    //************************ CREATE A DATABASE REFERENCE OBJECT ****************//
      DatabaseReference userRefLogin;
 
     public void onBackPressed() {
@@ -92,13 +92,12 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //////////////////////////no internet connection function call
+        //************************* no internet connection function call ******************************//
         if(!isConnected(MainActivity.this))
             buildDialog(MainActivity.this).show();
 
 
-        //FIND THE DATABASEREFERENCE OBJECT//
-
+        //******************** FIND THE DATABASE REFERENCE OBJECT *****************************//
          userRefLogin = FirebaseDatabase.getInstance().getReference().child("Information");
 
 
@@ -107,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements
 
 
 
-        //TEXT VIEW FIND//
+        //**************************** TEXT VIEW FIND ********************************//
         Login=findViewById(R.id.Login);
         User=findViewById(R.id.User);
         ForgetMessage=findViewById(R.id.Forget);
@@ -116,23 +115,17 @@ public class MainActivity extends AppCompatActivity implements
 
 
 
-        // EDIT TEXT FIND//
+        //********************* EDIT TEXT FIND **********************************//
         textUsername=findViewById(R.id.USERNAMEEDIT);
         textpassword=findViewById(R.id.PasswordEdit);
 
 
-        //BUTTON FIND//
-
+        //********************* BUTTON FIND *******************************//
         signin=findViewById(R.id.SigninButton);
 
 
 
-
-        //IMAGE FIND//
-        image3=findViewById(R.id.image3);
-
-
-        //THIS PART IS GET THE STRING FROM REGISTRATION JAVA//
+        //*************** THIS PART IS GET THE STRING FROM REGISTRATION JAVA *********************//
 
         Intent intent = getIntent();
         String text1 = intent.getStringExtra(registration.Extra);
@@ -164,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements
             case R.id.SigninButton:
 
 
-                //CHECKING WITH FIREBASE //
+                //******************* CHECKING DATA WITH FIRE BASE ***************************//
                 Log.d("Atanu", "onDataChange0: ");
 
                 if(isConnected(MainActivity.this))
@@ -200,11 +193,11 @@ public class MainActivity extends AppCompatActivity implements
                                     Log.d("Atanu", "onDataChange3:");
 
 
-                                    //CALL THE FUNCTION AND WRITE THE FILE //
+                                    //************* CALL THE FUNCTION AND WRITE THE FILE ********************//
 
                                     saveLoginInfoToFile(informetion1.getFullname(), informetion1.getUserId(), informetion1.getPhoneno(), informetion1.getEmail(), informetion1.getDate(), informetion1.getSpinner());
 
-                                    //WRITE THE FILE ONLY FOR Stat file//
+                                    //***************** WRITE THE FILE ONLY FOR Stat file *******************//
                                     FileOutputStream fos0 = null;
                                     try {
                                         fos0 = openFileOutput(Stat_File, MODE_PRIVATE);
@@ -285,7 +278,7 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-    //THIS FUNCTION WRITE THE FILE//
+    //******************* THIS FUNCTION WRITE THE FILE **************************//
     public void saveLoginInfoToFile( String name,String user,String phone,String email,String Dob,String Bld)
     {
 
@@ -334,7 +327,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
 
-    //THIS  FUNCTION ONLY READ THE FILE//
+    //******************* THIS  FUNCTION ONLY READ THE FILE ******************************//
     private String check(String File_Name){
         String st = null;
         FileInputStream fis0 = null;
@@ -365,7 +358,7 @@ public class MainActivity extends AppCompatActivity implements
         return st;
     }
 
-    ///////////////// no internet  connection
+    //************************* no internet  connection *********************************//
 
     public boolean isConnected(Context context) {
 

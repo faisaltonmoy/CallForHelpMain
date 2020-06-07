@@ -21,11 +21,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MyProfileFragment extends Fragment{
-    //CREATE KEY FOR SEND DATA FROM ONE ACTIVITY TO ANOTHER ACTIVITY//
+    //*********************** CREATE KEY FOR SEND DATA FROM ONE ACTIVITY TO ANOTHER ACTIVITY ********************//
     public static final String Extra ="com.example.callforhelpdemu.Extra";
 
 
-    //CREATE A OBJECT//
+    //**************** CREATE A OBJECT *******************//
     private MyProfileViewModel myProfileViewModel;
     private TextView name,phone,email,dob,bld;
 
@@ -38,7 +38,7 @@ public class MyProfileFragment extends Fragment{
                 ViewModelProviders.of(this).get(MyProfileViewModel.class);
         View root = inflater.inflate(R.layout.fragment_my_profile, container, false);
 
-        //FIND THE OBJECT//
+        //****************** FIND THE OBJECT ***********************//
         name = root.findViewById(R.id.pro_name);
         phone = root.findViewById(R.id.pro_phn);
         email = root.findViewById(R.id.pro_email);
@@ -84,8 +84,8 @@ public class MyProfileFragment extends Fragment{
                 }
             }
         }
-        return st;
-        //returns string
+        return st;      //returns string//
+
     }
 
 }
