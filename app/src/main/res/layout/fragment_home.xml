@@ -29,7 +29,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/HospitalCardView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="180dp"
         android:layout_margin="10dp"
         android:layout_weight="1"
         android:clickable="true">
@@ -58,7 +58,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/PoliceStationCardView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="180dp"
         android:layout_margin="10dp"
         android:layout_weight="1"
         android:clickable="true">
@@ -87,18 +87,19 @@
 </LinearLayout>
 
 <LinearLayout
-    android:layout_marginTop="0dp"
+    android:layout_marginTop="15dp"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:gravity="center"
     android:layout_weight=".8"
+
     android:orientation="horizontal">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/FireServiceCardView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="180dp"
         android:layout_margin="10dp"
         android:layout_weight="1"
         android:clickable="true">
@@ -126,7 +127,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/AmbulanceCardView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="180dp"
         android:layout_margin="10dp"
         android:layout_weight="1"
         android:clickable="true">
